@@ -3,6 +3,8 @@ let kiirGomb = document.getElementById("kiir");
 let osszeadGomb = document.getElementById("osszead");
 let parosDbGomb = document.getElementById("parosdb");
 let oszthatoGomb = document.getElementById("oszthato");
+let egyesGomb = document.getElementById("egyes");
+let legnagyobbGomb = document.getElementById("legnagyobb");
 
 const veletlentomb = new Array()
 
@@ -29,8 +31,8 @@ function kiir(){
 kiirGomb.addEventListener("click", kiir)
 
 function osszead(){
-    var osszeg = 0;
-    for (var index = 0; index < 50; index++) {
+    let osszeg = 0;
+    for (let index = 0; index < 50; index++) {
         osszeg += veletlentomb[index];
     }
     alert(osszeg);
@@ -39,8 +41,8 @@ function osszead(){
 osszeadGomb.addEventListener("click", osszead)
 
 function parosDb(){
-    var db= 0;
-    for (var index = 0; index < 50; index++) {
+    let db= 0;
+    for (let index = 0; index < 50; index++) {
         if(veletlentomb[index] % 2 == 0){
             db +=1;
         }
@@ -51,7 +53,7 @@ function parosDb(){
 parosDbGomb.addEventListener("click", parosDb)
 
 function oszthato(){
-    var oszt = 0;
+    let oszt = 0;
     for (let index = 0; index < 50; index++) {
         if(veletlentomb[index] % 3 == 0){
             oszt += 1;
@@ -61,3 +63,29 @@ function oszthato(){
 }
 
 oszthatoGomb.addEventListener("click", oszthato)
+
+function egyes(){
+    i = 0;
+    let vanBenneEgyes = false;
+    while (i < veletlentomb.length && !vanBenneEgyes) {
+        if(veletlentomb[i] === 1){
+            vanBenneEgyes = true;
+        }
+        i += 1;
+    }
+    alert(vanBenneEgyes)
+}
+
+egyesGomb.addEventListener("click", egyes)
+
+function legnagyobb(){
+    let max = 0;
+    for (let index = 0; index < veletlentomb.length; index++) {
+        if (veletlentomb[index] > max){
+            max = veletlentomb[index];
+        }
+    }
+    alert(max);
+}
+
+legnagyobbGomb.addEventListener("click", legnagyobb)
